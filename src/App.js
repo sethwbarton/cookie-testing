@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +20,20 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => {
+          var xhr = new XMLHttpRequest()
+
+          xhr.addEventListener('load', () => {
+            alert(xhr.responseText)
+            console.log(xhr.responseText)
+          })
+          xhr.withCredentials = true;
+          xhr.open('GET', 'http://localhost:8090/')
+          xhr.send()
+        }}>SEND REQUEST</button>
+        <button onClick={() => {
+          document.cookie = 'first_name=seth'
+        }}>STORE COOKIE</button>
       </header>
     </div>
   );
